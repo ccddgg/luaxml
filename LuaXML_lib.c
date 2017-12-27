@@ -319,7 +319,7 @@ int Xml_eval(lua_State *L) {
 			if(token[sepPos]) { // regular attribute
 				const char* aVal =token+sepPos+2;
 				lua_pushlstring(L, token, sepPos);
-				Xml_pushDecode(L, aVal, strlen(aVal)-1);
+				Xml_pushDecode(L, aVal, strlen(aVal) ? strlen(aVal)-1 : 0);
 				lua_settable(L, -3);
 			}
 		}            
